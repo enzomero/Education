@@ -63,3 +63,4 @@ Sphiral
 ### Wow
 1. Agail, Scrum, Kanban.
 2. Jira, Hansoft.
+3. Documentation, Troublereports, Issues.
