@@ -18,11 +18,6 @@ Sphiral
 2. C++. Functions and Containiers. Vector, Queue, Map, Set.
 3. C++. Simple algorithms. Factorial, Reverse, Polindrom, Sinonims.
 
-### Testing intro
-1. Unit testing. Mocks Frameworks.
-2. Functional testing. SUT, White/Black box.
-3. Stress testing. ST/UT.
-
 ### Git Intro
 1. Git. Init, Pull, Push, Commit, Clone. Branches.
 2. Git. Cherrypick, Checkout, Rebase, Merge conflicts. Cuted HEAD)
@@ -36,6 +31,9 @@ Sphiral
 ### Build and compile
 1. Building and compilation. tmake and optimisation.
 2. Multifiles projects. Structures.
+
+### Testing intro
+1. Unit testing. Mocks Frameworks.
 
 ### First project
 7. C++. Your own Data Base. BIG LAB.
@@ -57,5 +55,7 @@ Sphiral
 2. Protocols. TCP/IP, UDP, Sip and DIAMETER. 
 3. Log analyse. Whireshark.
 
-### AutoTesting
-1. Continuous Integration. Jenkins, Heroku
+### Testing++
+1. Continuous Integration. Jenkins, Heroku.
+2. Functional testing. SUT, White/Black box.
+3. Stress testing. ST/UT.
