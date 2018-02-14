@@ -64,3 +64,6 @@ Sphiral
 1. Agail, Scrum, Kanban.
 2. Jira, Hansoft.
 3. Documentation, Troublereports, Issues.
+
+### Team project
+C++. Data Base. Multicomponent with one repo, review, delivery date.
