@@ -59,3 +59,7 @@ Sphiral
 1. Continuous Integration. Jenkins, Heroku.
 2. Functional testing. SUT, White/Black box.
 3. Stress testing. ST/UT.
+
+### Wow
+1. Agail, Scrum, Kanban.
+2. Jira, Hansoft.
