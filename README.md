@@ -18,7 +18,7 @@ Sphiral
 2. C++. Functions and Containiers. Vector, Queue, Map, Set.
 3. C++. Simple algorithms. Factorial, Reverse, Polindrom, Sinonims.
 
-### Git Intro
+### Version Control System
 1. Git. Init, Pull, Push, Commit, Clone. Branches.
 2. Git. Cherrypick, Checkout, Rebase, Merge conflicts. Cuted HEAD)
 3. Review on repositories in projects. Design rules.
