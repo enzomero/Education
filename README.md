@@ -4,28 +4,29 @@ The project for all possible ways of self education.
 ## Education metodology
 Sphiral
 
-### Machines
+### Hardware
 1. Architecture of processors. --- !not sure
 2. How work the memory. --- !not sure
 
-### Telecom
-1. IMS. Structure.
-1. Sip and DIAMETER. Whireshark.
-
-### Testing intro
-1. Testing. White/Black box.
-2. Functional testing. SUT.
-3. Unit testing.
-4. Stress testing.
+### OS
+1. Windows/Linux. CMD.
+2. Navigation and Finding. 
+3. Scripts. Bash/Python.
 
 ### C++ Intro
 1. C++. Simple semantics and math functions. Output and Input.
 2. C++. Functions and Containiers. Vector, Queue, Map, Set.
 3. C++. Simple algorithms. Factorial, Reverse, Polindrom, Sinonims.
 
+### Testing intro
+1. Unit testing. Mocks Frameworks.
+2. Functional testing. SUT, White/Black box.
+3. Stress testing. ST/UT.
+
 ### Git Intro
 1. Git. Init, Pull, Push, Commit, Clone. Branches.
-2. Design rules.
+2. Git. Cherrypick, Checkout, Rebase, Merge conflicts. Cuted HEAD)
+3. Review on repositories in projects. Design rules.
 
 ### C++ OOP
 4. C++. Class and Scope. Fields, Constructor/Destructor, Access modificators, Life time.
@@ -33,19 +34,15 @@ Sphiral
 6. C++. Overload and Exeptions. 
 
 ### Build and compile
-1. Building and compilation. tmake.
+1. Building and compilation. tmake and optimisation.
 2. Multifiles projects. Structures.
-
-### Git base
-1. Git. Cherrypick, Checkout, Rebase, Merge conflicts. Cuted HEAD)
-2. Review on repositories in projects.
 
 ### First project
 7. C++. Your own Data Base. BIG LAB.
 
 ### C++ Intro++
 8. C++. Unsigned, Templates, Tuples and pairs.
-9. C++. Unit testing. 
+9. C++. Unit testing. Into C++ Frameworks.
 10. C++. Iterators, algorithms and containers. Queue, Dec, and Search Algorithms.
 11. C++. Inheritance and Polymorphism.
 
@@ -55,5 +52,10 @@ Sphiral
 ### Second project
 13. C++. Update Data Base. LAB.
 
-### Testing Intro++
+### Telecom
+1. IMS. Structure.
+2. Protocols. TCP/IP, UDP, Sip and DIAMETER. 
+3. Log analyse. Whireshark.
+
+### AutoTesting
 1. Continuous Integration. Jenkins, Heroku
