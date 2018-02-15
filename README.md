@@ -44,21 +44,18 @@ Sphiral
 10. C++. Iterators, algorithms and containers. Queue, Dec, and Search Algorithms.
 11. C++. Inheritance and Polymorphism.
 
+### Testing++
+1. Functional testing. SUT, White/Black box.
+2. Stress testing. ST/UT.
+
 ### Patterns
 1. Patterns. Singleton and Factory. --- !not sure
 
+### Automatic tests
+1. Continuous Integration. Jenkins, Heroku.
+
 ### Second project
 13. C++. Update Data Base. LAB.
-
-### Telecom
-1. IMS. Structure.
-2. Protocols. TCP/IP, UDP, Sip and DIAMETER. 
-3. Log analyse. Whireshark.
-
-### Testing++
-1. Continuous Integration. Jenkins, Heroku.
-2. Functional testing. SUT, White/Black box.
-3. Stress testing. ST/UT.
 
 ### Wow
 1. Agail, Scrum, Kanban.
@@ -67,3 +64,10 @@ Sphiral
 
 ### Team project
 C++. Data Base. Multicomponent with one repo, review, delivery date.
+
+### Telecom
+1. Protocols. TCP/IP, UDP, Sip, DIAMETER, HTTP.
+2. IMS. WWW.
+
+### Troubleshoting
+3. Log analyse. Whireshark.
