@@ -71,3 +71,9 @@ C++. Data Base. Multicomponent with one repo, review, delivery date.
 
 ### Troubleshoting
 3. Log analyse. Whireshark.
+
+### WEB
+1. JS, HTML, CSS, MVC.
+
+### Mobile
+1. Android, Khotlin, MVP
