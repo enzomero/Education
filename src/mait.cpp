@@ -5,7 +5,7 @@
 using namespace std;
 
 void
-Avg ()
+avg ()
 {
   uint32_t n;
   cin >> n;
@@ -37,7 +37,7 @@ Avg ()
 }
 
 uint64_t
-Bloks ()
+bloks ()
 {
   uint32_t numb = 0;
   int16_t densty = 0;
@@ -47,9 +47,8 @@ Bloks ()
   cin >> numb;
   cin >> densty;
   if (numb == 0)
-    {
-      return sum;
-    }
+      return (sum);
+
   for (uint32_t i = 0; i < numb; i++)
     {
       for (uint16_t t = 0; t < 3; t++)
@@ -68,13 +67,7 @@ Bloks ()
       volume = 0;
     }
 
-  return sum;
+  return (sum);
 }
 
-int
-main ()
-{
-  cout << Bloks () << endl;
-  //cout << numeric_limits<int32_t>::max() << endl;
-  return 0;
-}
+
