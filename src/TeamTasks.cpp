@@ -37,31 +37,33 @@ public:
   PerformPersonTasks (const string& person, int task_count)
   {
     TasksInfo newTasks;
-    TasksInfo oldTasks;
-    int diff = 0;
-    for (auto taskInfo : personTasks.at (person))
+    TasksInfo oldTasks = personTasks[person];
+    for (; task_count > 0; task_count--)
       {
-	if (taskInfo.first != TaskStatus::NEW)
+	if (personTasks.at (person)[TaskStatus::NEW] > 0)
 	  {
-	    taskInfo.second += task_count;
-	    newTasks[taskInfo.first] = task_count;
-	    task_count = diff;
-	    diff = 0;
-	  }
+	    personTasks.at (person)[TaskStatus::NEW]--;
+	    personTasks.at (person)[TaskStatus::IN_PROGRESS]++;
 
-	if (taskInfo.second < task_count)
-	  {
-	    diff = task_count - taskInfo.second;
-	    taskInfo.second = 0;
+	    oldTasks[TaskStatus::NEW] = personTasks.at (person)[TaskStatus::NEW];
+	    newTasks[TaskStatus::IN_PROGRESS]++;
 	  }
-	else if (taskInfo.second > task_count)
+	else if (personTasks.at (person)[TaskStatus::IN_PROGRESS] > 0)
 	  {
-	    taskInfo.second -= task_count;
-	    oldTasks[taskInfo.first] = taskInfo.second;
+	    personTasks.at (person)[TaskStatus::IN_PROGRESS]--;
+	    personTasks.at (person)[TaskStatus::TESTING]++;
+
+	    oldTasks[TaskStatus::IN_PROGRESS] = personTasks.at (person)[TaskStatus::IN_PROGRESS];
+	    newTasks[TaskStatus::TESTING]++;
 	  }
-	else
+	else if (personTasks.at (person)[TaskStatus::TESTING] > 0)
 	  {
-	    oldTasks[taskInfo.first] = taskInfo.second;
+	    personTasks.at (person)[TaskStatus::TESTING]--;
+	    personTasks.at (person)[TaskStatus::DONE]++;
+
+	    oldTasks[TaskStatus::TESTING] = personTasks.at (person)[TaskStatus::TESTING];
+	    newTasks[TaskStatus::DONE]++;
+
 	  }
       }
 
@@ -96,21 +98,32 @@ int
 main ()
 {
   TeamTasks tasks;
-  for (int i = 0; i < 3; ++i)
-    {
-      tasks.AddNewTask ("Ivan");
+    tasks.AddNewTask("Ilia");
+    for (int i = 0; i < 3; ++i) {
+      tasks.AddNewTask("Ivan");
     }
+    cout << "Ilia's tasks: ";
+    PrintTasksInfo(tasks.GetPersonTasksInfo("Ilia"));
+    cout << "Ivan's tasks: ";
+    PrintTasksInfo(tasks.GetPersonTasksInfo("Ivan"));
 
-  cout << "Ivan's tasks: ";
-  PrintTasksInfo (tasks.GetPersonTasksInfo ("Ivan"));
+    TasksInfo updated_tasks, untouched_tasks;
 
-  TasksInfo updated_tasks, untouched_tasks;
+    tie(updated_tasks, untouched_tasks) =
+        tasks.PerformPersonTasks("Ivan", 2);
+    cout << "Updated Ivan's tasks: ";
+    PrintTasksInfo(updated_tasks);
+    cout << "Untouched Ivan's tasks: ";
+    PrintTasksInfo(untouched_tasks);
 
-  tie (updated_tasks, untouched_tasks) = tasks.PerformPersonTasks ("Ivan", 4);
-  cout << "Updated Ivan's tasks: ";
-  PrintTasksInfo (updated_tasks);
-  cout << "Untouched Ivan's tasks: ";
-  PrintTasksInfo (untouched_tasks);
+    tie(updated_tasks, untouched_tasks) =
+        tasks.PerformPersonTasks("Ivan", 2);
+    cout << "Updated Ivan's tasks: ";
+    PrintTasksInfo(updated_tasks);
+    cout << "Untouched Ivan's tasks: ";
+    PrintTasksInfo(untouched_tasks);
 
   return 0;
+
 }
+
