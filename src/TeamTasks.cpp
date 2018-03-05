@@ -1,7 +1,7 @@
 /*
  * TeamTasks.cpp
  *
- *  Created on: 4 мар. 2018 г.
+ *  Created on: 4 пїЅпїЅпїЅ. 2018 пїЅ.
  *      Author: Raus
  */
 #include <iostream>
@@ -13,54 +13,73 @@ using namespace std;
 
 enum class TaskStatus
 {
-  NEW,          // новая
-  IN_PROGRESS,  // в разработке
-  TESTING,      // на тестировании
-  DONE          // завершена
+  NEW, IN_PROGRESS, TESTING, DONE
 };
 
-// Объявляем тип-синоним для map<TaskStatus, int>,
-// позволяющего хранить количество задач каждого статуса
 using TasksInfo = map<TaskStatus, int>;
 
 class TeamTasks
 {
 public:
-  // Получить статистику по статусам задач конкретного разработчика
   const TasksInfo&
-  GetPersonTasksInfo (const string& person) const;
+  GetPersonTasksInfo (const string& person) const
+  {
+    return personTasks.at (person);
+  }
 
-
-  // Добавить новую задачу (в статусе NEW) для конкретного разработчитка
   void
   AddNewTask (const string& person)
   {
-    TasksInfo data = {{TaskStatus::NEW , 1}};
-    personTasks.insert({{person, data}});
+    personTasks[person][TaskStatus::NEW]++;
   }
 
-  // Обновить статусы по данному количеству задач конкретного разработчика,
-  // подробности см. ниже
   tuple<TasksInfo, TasksInfo>
   PerformPersonTasks (const string& person, int task_count)
   {
-    TasksInfo taskPerson = personTasks.at(person);
-    if (true){
+    TasksInfo newTasks;
+    TasksInfo oldTasks;
+    int diff = 0;
+    for (auto taskInfo : personTasks.at (person))
+      {
+	if (taskInfo.first != TaskStatus::NEW)
+	  {
+	    taskInfo.second += task_count;
+	    newTasks[taskInfo.first] = task_count;
+	    task_count = diff;
+	    diff = 0;
+	  }
 
-    }
-    return tie(taskPerson, taskPerson);
+	if (taskInfo.second < task_count)
+	  {
+	    diff = task_count - taskInfo.second;
+	    taskInfo.second = 0;
+	  }
+	else if (taskInfo.second > task_count)
+	  {
+	    taskInfo.second -= task_count;
+	    oldTasks[taskInfo.first] = taskInfo.second;
+	  }
+	else
+	  {
+	    oldTasks[taskInfo.first] = taskInfo.second;
+	  }
+      }
+
+    return tie (newTasks, oldTasks);
   }
 private:
   map<string, map<TaskStatus, int>> personTasks;
 };
 
-bool operator<( TaskStatus& lhs,  TaskStatus& rhs){
-  if ( lhs == TaskStatus::NEW and rhs == TaskStatus::IN_PROGRESS )
+bool
+operator< (TaskStatus& lhs, TaskStatus& rhs)
+{
+  if (lhs == TaskStatus::NEW and rhs == TaskStatus::IN_PROGRESS)
     return true;
-  if ( lhs == TaskStatus::IN_PROGRESS and rhs == TaskStatus::TESTING )
-      return true;
-  if ( lhs == TaskStatus::TESTING and rhs == TaskStatus::DONE )
-      return true;
+  if (lhs == TaskStatus::IN_PROGRESS and rhs == TaskStatus::TESTING)
+    return true;
+  if (lhs == TaskStatus::TESTING and rhs == TaskStatus::DONE)
+    return true;
   return false;
 }
 
@@ -77,25 +96,17 @@ int
 main ()
 {
   TeamTasks tasks;
-  tasks.AddNewTask ("Ilia");
   for (int i = 0; i < 3; ++i)
     {
       tasks.AddNewTask ("Ivan");
     }
-  cout << "Ilia's tasks: ";
-  PrintTasksInfo (tasks.GetPersonTasksInfo ("Ilia"));
+
   cout << "Ivan's tasks: ";
   PrintTasksInfo (tasks.GetPersonTasksInfo ("Ivan"));
 
   TasksInfo updated_tasks, untouched_tasks;
 
-  tie (updated_tasks, untouched_tasks) = tasks.PerformPersonTasks ("Ivan", 2);
-  cout << "Updated Ivan's tasks: ";
-  PrintTasksInfo (updated_tasks);
-  cout << "Untouched Ivan's tasks: ";
-  PrintTasksInfo (untouched_tasks);
-
-  tie (updated_tasks, untouched_tasks) = tasks.PerformPersonTasks ("Ivan", 2);
+  tie (updated_tasks, untouched_tasks) = tasks.PerformPersonTasks ("Ivan", 4);
   cout << "Updated Ivan's tasks: ";
   PrintTasksInfo (updated_tasks);
   cout << "Untouched Ivan's tasks: ";
