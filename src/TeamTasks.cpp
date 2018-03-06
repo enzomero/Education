@@ -11,12 +11,14 @@
 
 using namespace std;
 
+/*
 enum class TaskStatus
 {
   NEW, IN_PROGRESS, TESTING, DONE
 };
 
 using TasksInfo = map<TaskStatus, int>;
+*/
 
 class TeamTasks
 {
@@ -40,49 +42,48 @@ public:
     TasksInfo oldTasks = personTasks.at(person);
     for (; task_count > 0; task_count--)
       {
-	if (personTasks.at (person).at (TaskStatus::NEW) > 0)
-	  {
-	    personTasks.at (person).at (TaskStatus::NEW)--;
-	    personTasks.at (person)[TaskStatus::IN_PROGRESS]++;
-
-	    oldTasks.at (TaskStatus::NEW) = personTasks.at (person).at (
-		TaskStatus::NEW);
-	    newTasks[TaskStatus::IN_PROGRESS]++;
-	  }
-	else if (personTasks.at (person).at (TaskStatus::IN_PROGRESS) > 0)
-	  {
-	    oldTasks.erase (TaskStatus::NEW); //cleaner
-
-	    personTasks.at (person).at (TaskStatus::IN_PROGRESS)--;
-	    personTasks.at (person)[TaskStatus::TESTING]++;
-
-	    oldTasks.at (TaskStatus::IN_PROGRESS) = personTasks.at (person).at (
-		TaskStatus::IN_PROGRESS);
-	    newTasks[TaskStatus::TESTING]++;
-	  }
-	else if (personTasks.at (person).at (TaskStatus::TESTING) > 0)
-	  {
-	    oldTasks.erase (TaskStatus::IN_PROGRESS); //cleaner
-
-	    personTasks.at (person).at (TaskStatus::TESTING)--;
-	    personTasks.at (person)[TaskStatus::DONE]++;
-
-	    oldTasks.at (TaskStatus::TESTING) = personTasks.at (person).at (
-		TaskStatus::TESTING);
-	    newTasks[TaskStatus::DONE]++;
-
-	  }
-	else if (personTasks.at (person).at (TaskStatus::DONE) > 0)
-	  {
-	    oldTasks.erase (TaskStatus::TESTING); //cleaner
-	  }
+    	if (personTasks.at (person).at (TaskStatus::NEW) > 0)
+    	  {
+    	    personTasks.at (person).at (TaskStatus::NEW)--;
+    	    personTasks.at (person)[TaskStatus::IN_PROGRESS]++;
+    
+    	    oldTasks.at (TaskStatus::NEW) --;
+    	    newTasks[TaskStatus::IN_PROGRESS]++;
+    	  }
+    	else if (personTasks.at (person).at (TaskStatus::IN_PROGRESS) > 0)
+    	  {
+    	    personTasks.at (person).erase(TaskStatus::NEW);
+    	    
+    	    personTasks.at (person).at (TaskStatus::IN_PROGRESS)--;
+    	    personTasks.at (person)[TaskStatus::TESTING]++;
+    
+    	    oldTasks.at (TaskStatus::IN_PROGRESS) --;
+    	    newTasks[TaskStatus::TESTING]++;
+    	  }
+    	else if (personTasks.at (person).at (TaskStatus::TESTING) > 0)
+    	  {
+    	    personTasks.at (person).erase(TaskStatus::IN_PROGRESS);
+    	      
+    	    personTasks.at (person).at (TaskStatus::TESTING)--;
+    	    personTasks.at (person)[TaskStatus::DONE]++;
+    
+    	    oldTasks.at (TaskStatus::TESTING) --;
+    	    newTasks[TaskStatus::DONE]++;
+    
+    	  }
+    	else {
+    	    personTasks.at (person).erase(TaskStatus::TESTING);
+    	  }
       }
 
     return tie (newTasks, oldTasks);
   }
 private:
   map<string, map<TaskStatus, int>> personTasks;
+  
+  
 };
+
 
 bool
 operator< (TaskStatus& lhs, TaskStatus& rhs)
@@ -96,6 +97,7 @@ operator< (TaskStatus& lhs, TaskStatus& rhs)
   return false;
 }
 
+/*
 void
 PrintTasksInfo (TasksInfo tasks_info)
 {
@@ -136,3 +138,4 @@ main ()
   return 0;
 
 }
+*/
