@@ -2,6 +2,10 @@
 The project for all possible ways of self education.
 I going to try execute the matrix - http://sijinjoseph.com/programmer-competency-matrix/
 
+Youtube support:
+  https://www.youtube.com/channel/UC4omkhNHsYLagT1o6hnmKQw
+  https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5
+
 ## Education metodology
 Sphiral
 
