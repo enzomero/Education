@@ -1,5 +1,6 @@
 # Information Technology as Tempest Involvement
 The project for all possible ways of self education.
+I going to try execute the matrix - http://sijinjoseph.com/programmer-competency-matrix/
 
 ## Education metodology
 Sphiral
