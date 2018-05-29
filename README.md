@@ -6,6 +6,9 @@ I going to try execute the matrix - http://sijinjoseph.com/programmer-competency
 1. Core - https://www.youtube.com/channel/UC4omkhNHsYLagT1o6hnmKQw
 2. Base knowledges - https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5
 
+# Git support:
+1. OSSU - https://github.com/ossu/computer-science#summary
+
 ## Education metodology
 Sphiral
 
