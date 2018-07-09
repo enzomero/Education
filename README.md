@@ -8,6 +8,7 @@ I going to try execute the matrix - http://sijinjoseph.com/programmer-competency
 
 # Git support:
 1. OSSU - https://github.com/ossu/computer-science#summary
+2. Usefull - https://github.com/Ilyushin/google-interview-university#what-is-it
 
 ## Education metodology
 Sphiral
