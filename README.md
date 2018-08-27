@@ -6,7 +6,7 @@ I going to try execute the matrix - http://sijinjoseph.com/programmer-competency
 1. Core - https://www.youtube.com/channel/UC4omkhNHsYLagT1o6hnmKQw
 2. Base knowledges - https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5
 
-# Git support:
+# Git support:[![Open Source Society University - Computer Science](https://img.shields.io/badge/OSSU-computer--science-blue.svg)](https://github.com/ossu/computer-science)
 1. OSSU - https://github.com/ossu/computer-science#summary
 2. Usefull - https://github.com/Ilyushin/google-interview-university#what-is-it
 
